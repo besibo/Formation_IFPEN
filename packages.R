@@ -6,7 +6,7 @@ install.packages("car")
 install.packages("readxl")
 install.packages("janitor")
 install.packages("colorspace")
-
+install.packages("scales")
 
 install.packages("nycflights13")
 install.packages("palmerpenguins")
