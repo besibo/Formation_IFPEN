@@ -24,6 +24,7 @@ print(paste("Quant Value:", quant_value))
 
 # Read all lines from the S00 file
 s00_lines <- readLines(s00_file)
+s00_lines
 
 # Find the starting line index for each table using pattern matching
 pyro_start_idx <- grep("\\[Curves pyro\\]", s00_lines)
@@ -41,7 +42,7 @@ oxi_data_lines  <- oxi_text_block[grepl("^\\s*\\d", oxi_text_block)]
 # and immediately remove columns that are entirely NA.
 pyro <- read_delim(
   paste(pyro_data_lines, collapse = "\n"),
-  delim = "\t",  # <-- KEY CHANGE 1: Use tab as the delimiter
+  delim = "\t",  
   col_names = FALSE,
   col_types = cols(.default = "c") # Read as character first to avoid parsing warnings
 ) %>%
@@ -66,11 +67,28 @@ pyro <- pyro %>%
     Sample = sample_code,
     Quant = quant_value,
     .before = 1
-  )
+  ) %>% 
+  rename(Temps = X1,
+         Temperature = X2,
+         fid = X3,
+         CO = X4,
+         CO2 = X5)
+
+pyro
 
 oxi <- oxi %>%
   mutate(
     Sample = sample_code,
     Quant = quant_value,
     .before = 1
+  ) %>% 
+  rename(
+    Temps = X1,
+    Temperature = X2,
+    CO = X3,
+    CO2 = X4
   )
+
+# Export both tables
+write_excel_csv(pyro, paste0("Data/", sample_code, "_pyro.csv"))
+write_excel_csv(oxi, paste0("Data/", sample_code, "_oxi.csv"))
