@@ -12,6 +12,7 @@ install.packages("scales")
 install.packages("pwr")
 install.packages("effectsize")
 install.packages("rstatix")
+install.packages("Hmisc")
 
 install.packages("nycflights13")
 install.packages("palmerpenguins")
