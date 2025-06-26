@@ -15,6 +15,7 @@ install.packages("rstatix")
 install.packages("Hmisc")
 install.packages("rpart")
 install.packages("rpart.plot")
+install.packages("ade4")
 
 install.packages("nycflights13")
 install.packages("palmerpenguins")
