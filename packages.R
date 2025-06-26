@@ -6,7 +6,12 @@ install.packages("car")
 install.packages("readxl")
 install.packages("janitor")
 install.packages("colorspace")
+
+# Newly added!
 install.packages("scales")
+install.packages("pwr")
+install.packages("effectsize")
+install.packages("rstatix")
 
 install.packages("nycflights13")
 install.packages("palmerpenguins")
