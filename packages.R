@@ -13,6 +13,8 @@ install.packages("pwr")
 install.packages("effectsize")
 install.packages("rstatix")
 install.packages("Hmisc")
+install.packages("rpart")
+install.packages("rpart.plot")
 
 install.packages("nycflights13")
 install.packages("palmerpenguins")
